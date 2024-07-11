@@ -41,11 +41,11 @@ class ForgotPasswordPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     // Handle password reset verification
-                    Navigator.pushNamed(context, '/verify-mobile');
+                    Navigator.pushNamed(context, '/recovery-code');
                     authProvider
                       .resetPassword(context);
                   },
-                  child: Text('Send Verification Code'),
+                  child: Text('Send Recovery Code'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.yellow,
                     foregroundColor: Colors.black,

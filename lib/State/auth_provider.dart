@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moveeasy/navigation/navigation_service.dart';
 import 'package:provider/provider.dart';
-
+import 'package:moveeasy/navigation/navigation_service.dart';
 
 class AuthProvider with ChangeNotifier {
   String _phoneNumber = '';
@@ -38,8 +37,8 @@ class AuthProvider with ChangeNotifier {
     print('Sign Up with Phone: $_phoneNumber, Password: $_password');
     if (_password == _confirmPassword) {
       print('Passwords match. Proceeding with sign-up.');
-      // final navigationService = Provider.of<NavigationService>(context, listen: false);
-      // navigationService.navigateTo('/verify-mobile');
+      final navigationService = Provider.of<NavigationService>(context, listen: false);
+      navigationService.navigateTo('/verify-mobile');
     } else {
       print('Passwords do not match. Please re-enter.');
     }
@@ -55,13 +54,20 @@ class AuthProvider with ChangeNotifier {
     Navigator.pushNamedAndRemoveUntil(context, '/sign-in', (route) => false);
   }
 
-
   void resetPassword(BuildContext context) {
-  // calling backend API to initiate the password reset
-  print('Initiating password reset for phone number: $_phoneNumber');
-  Navigator.pushNamed(context, '/verify-mobile');
-}
-  void verifyCode() {
-    print("Verification code: $_verificationCode");
+    // calling backend API to initiate the password reset
+    print('Initiating password reset for phone number: $_phoneNumber');
+  }
+
+  Future<bool> verifyCode(BuildContext context) async {
+    // assuming verification is always successful
+    bool isVerified = true; // Example check
+
+    if (isVerified) {
+      _verificationCode = ''; // Reset the code after successful verification
+      return true;
+    } 
+    return false;
+    
   }
 }

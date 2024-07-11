@@ -23,8 +23,15 @@ class CustomBottomNavBar extends StatelessWidget {
             label: 'Add A Vehicle',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+            icon: Container(
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.yellow,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(Icons.search, size: 36, color: Colors.white),
+            ),
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),

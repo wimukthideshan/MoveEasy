@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:moveeasy/State/auth_provider.dart';
 import 'package:moveeasy/components/verify_button.dart';
-import 'package:provider/provider.dart';
 
-class VerifyMobilePage extends StatelessWidget {
+class RecoveryCodePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authProvider = Provider.of<AuthProvider>(context);
@@ -18,7 +18,7 @@ class VerifyMobilePage extends StatelessWidget {
               Image.asset('assets/vehicle.gif'), // Add your image here
               SizedBox(height: 20),
               Text(
-                'Verify Your Mobile',
+                'Enter the recovery code',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10),
@@ -55,32 +55,29 @@ class VerifyMobilePage extends StatelessWidget {
                 }),
               ),
               SizedBox(height: 20),
-           
               VerifyButton(
                 onVerified: () {
-                  Navigator.pushNamed(context, '/home');
+                  Navigator.pushNamed(context, '/reset-password');
                 },
               ),
-              
               SizedBox(height: 20),
               Text(
-                'Code Not Received? Resent in a 90s',
+                'Code Not Received? Resend in 90s',
                 style: TextStyle(color: Colors.blue),
               ),
               SizedBox(height: 20),
-
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Mobile Number Wrong? Back To "),
+                    Text("Mobile Number Wrong? "),
                     GestureDetector(
                       onTap: () {
                         // Handle back to sign up navigation
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'SignUp',
+                        'Check Again',
                         style: TextStyle(color: Colors.blue),
                       ),
                     ),

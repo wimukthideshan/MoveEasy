@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moveeasy/Pages/forgot_password_page.dart';
 import 'package:moveeasy/Pages/home_page.dart';
+import 'package:moveeasy/Pages/recovery_code_page.dart';
+import 'package:moveeasy/Pages/reset_password_page.dart';
 import 'package:moveeasy/State/auth_provider.dart';
 import 'package:moveeasy/navigation/navigation_service.dart';
 import 'package:moveeasy/pages/sign_in_page.dart';
@@ -37,6 +39,8 @@ class MyApp extends StatelessWidget {
           '/verify-mobile': (context) => VerifyMobilePage(),
           '/forgot-password': (context) => ForgotPasswordPage(),
           '/home': (context) => HomePage(),
+          '/reset-password': (context) => ResetPasswordPage(),
+          '/recovery-code': (context) => RecoveryCodePage(),
         },
       ),
     );

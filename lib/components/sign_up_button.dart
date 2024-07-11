@@ -10,6 +10,7 @@ class SignUpButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         authProvider.signUp(context); // Pass the BuildContext here
+        Navigator.pushNamed(context, '/verify-mobile');
       },
       child: Text('Register'), // Match the text to the SignInButton
       style: ElevatedButton.styleFrom(
