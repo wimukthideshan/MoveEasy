@@ -58,7 +58,7 @@ class VerifyMobilePage extends StatelessWidget {
            
               VerifyButton(
                 onVerified: () {
-                  Navigator.pushNamed(context, '/home');
+                  Navigator.pushNamed(context, '/main-navigation');
                 },
               ),
               

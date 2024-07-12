@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:moveeasy/navigation/navigation_service.dart';
+import 'package:provider/provider.dart';
 
 class AuthProvider with ChangeNotifier {
   String _phoneNumber = '';
@@ -46,7 +46,7 @@ class AuthProvider with ChangeNotifier {
 
   void signIn(BuildContext context) {
     print('Signing in with phone number $_phoneNumber and password $_password');
-    Navigator.pushReplacementNamed(context, '/home');
+    Navigator.pushReplacementNamed(context, '/main-navigation');
   }
 
   void signOut(BuildContext context) {
