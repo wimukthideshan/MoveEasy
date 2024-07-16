@@ -3,7 +3,7 @@ import 'package:moveeasy/Pages/add_vehicle_page.dart';
 import 'package:moveeasy/Pages/favourites_page.dart';
 import 'package:moveeasy/Pages/home_page.dart';
 import 'package:moveeasy/Pages/my_profile_page.dart';
-import 'package:moveeasy/State/navigation_state_provider.dart';
+import 'package:moveeasy/Provider/navigation_state_provider.dart';
 import 'package:moveeasy/navigation/navigation_bar.dart';
 import 'package:provider/provider.dart';
 

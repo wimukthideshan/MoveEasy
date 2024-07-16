@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moveeasy/State/auth_provider.dart';
+import 'package:moveeasy/Provider/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,7 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Image.asset('assets/logo.png', height: 30),
-      backgroundColor: Colors.yellow,
+      backgroundColor: Colors.amber[800],
       actions: [
         IconButton(
           icon: Icon(Icons.notifications),

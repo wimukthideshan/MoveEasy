@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moveeasy/State/auth_provider.dart';
+import 'package:moveeasy/Provider/auth_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:moveeasy/components/verify_button.dart'; // Import the VerifyButton
 import 'package:moveeasy/components/update_password_button.dart'; // Import the UpdatePasswordButton

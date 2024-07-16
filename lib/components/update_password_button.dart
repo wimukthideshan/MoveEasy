@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moveeasy/Pages/reset_password_page.dart';
 import 'package:moveeasy/Pages/sign_in_page.dart';
-import 'package:moveeasy/State/auth_provider.dart';
+import 'package:moveeasy/Provider/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 class UpdatePasswordButton extends StatelessWidget {

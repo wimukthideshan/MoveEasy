@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:moveeasy/State/auth_provider.dart';
-import 'package:moveeasy/State/navigation_state_provider.dart';
+import 'package:moveeasy/Provider/auth_provider.dart';
+import 'package:moveeasy/Provider/navigation_state_provider.dart';
+import 'package:moveeasy/Provider/vehicle_provider.dart';
+import 'package:moveeasy/Service/vehicle_data_service.dart';
 import 'package:moveeasy/navigation/main_navigation_page.dart';
-import 'package:moveeasy/navigation/navigation_service.dart';
+import 'package:moveeasy/Service/navigation_service.dart';
 import 'package:moveeasy/pages/forgot_password_page.dart';
 import 'package:moveeasy/pages/home_page.dart';
 import 'package:moveeasy/pages/recovery_code_page.dart';
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         Provider<NavigationService>(create: (_) => _navigationService),
         ChangeNotifierProvider(create: (_) => NavigationStateProvider()),
+        ChangeNotifierProvider(create: (_) => VehicleProvider()),
+        ChangeNotifierProvider(create: (_) => VehicleDataService())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

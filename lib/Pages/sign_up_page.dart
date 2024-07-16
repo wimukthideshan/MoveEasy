@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moveeasy/State/auth_provider.dart';
+import 'package:moveeasy/Provider/auth_provider.dart';
 import 'package:moveeasy/components/sign_up_button.dart';
 import 'package:provider/provider.dart';
 

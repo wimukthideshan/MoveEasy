@@ -31,6 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   provider:
+  intl:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -47,6 +48,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+  image_picker:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -57,6 +59,8 @@ flutter:
   assets:
     - assets/vehicle.gif
     - assets/logo.png
+    - assets/honda_fit.jpg
+    - assets/land_rover.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
