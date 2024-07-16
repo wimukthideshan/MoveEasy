@@ -16,6 +16,7 @@ class _AddVehicleDetailsPageState extends State<AddVehicleDetailsPage> {
   final ImagePickerService _imagePickerService = ImagePickerService();
   List<File> _vehicleImages = [];
   String _priceUnit = 'Per Km';
+  String _selectedCategory = '';
 
   Future<void> _pickImages() async {
     final pickedImage = await _imagePickerService.pickImageFromGallery();
@@ -123,28 +124,34 @@ class _AddVehicleDetailsPageState extends State<AddVehicleDetailsPage> {
     );
   }
 
-  Widget _buildDropdown(String label, String hint, List<String> items) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(label, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-        Text(hint, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
-        DropdownButtonFormField<String>(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey[300]!)),
-          ),
-          items: items.map((String value) {
-            return new DropdownMenuItem<String>(
-              value: value,
-              child: new Text(value),
-            );
-          }).toList(),
-          onChanged: (_) {},
+Widget _buildDropdown(String label, String hint, List<String> items) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(label, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+      Text(hint, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
+      DropdownButtonFormField<String>(
+        decoration: InputDecoration(
+          border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey[300]!)),
         ),
-        SizedBox(height: 16),
-      ],
-    );
-  }
+        items: items.map((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
+        onChanged: (String? newValue) {
+          if (label == 'Select the Category') {
+            setState(() {
+              _selectedCategory = newValue ?? '';
+            });
+          }
+        },
+      ),
+      SizedBox(height: 16),
+    ],
+  );
+}
 
   Widget _buildPriceField() {
     return Column(
@@ -196,6 +203,7 @@ class _AddVehicleDetailsPageState extends State<AddVehicleDetailsPage> {
       String title = ''; // Get the title from the form
       String description = ''; // Get the description from the form
       double pricePerKm = 0; // Get the price from the form
+      String _selectedCategory = ''; // Get the category from the form
 
       // Create a new Vehicle object
       Vehicle newVehicle = Vehicle(
@@ -204,6 +212,7 @@ class _AddVehicleDetailsPageState extends State<AddVehicleDetailsPage> {
         pricePerKm: pricePerKm,
         imageUrl: _vehicleImages[0].path,
         dateAdded: DateTime.now(),
+        type: _selectedCategory,
       );
 
       // Add the new vehicle to the VehicleProvider

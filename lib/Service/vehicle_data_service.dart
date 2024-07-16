@@ -13,6 +13,7 @@ class VehicleDataService with ChangeNotifier {
       pricePerKm: 230,
       imageUrl: 'assets/honda_fit.jpg',
       dateAdded: DateTime(2024, 3, 29, 11, 0),
+      type: 'Car',
     ),
     Vehicle(
       title: 'Brand New Land Rover',
@@ -20,7 +21,33 @@ class VehicleDataService with ChangeNotifier {
       pricePerKm: 340,
       imageUrl: 'assets/land_rover.jpg',
       dateAdded: DateTime(2024, 3, 29, 11, 0),
+      type: 'SUV',
     ),
+    Vehicle(
+      title: 'Brand New Land Rover',
+      description: 'Experience luxury and power with our Land Rover.',
+      pricePerKm: 340,
+      imageUrl: 'assets/land_rover.jpg',
+      dateAdded: DateTime(2024, 3, 29, 11, 0),
+      type: 'SUV',
+    ),
+    Vehicle(
+      title: 'Rent The Honda Fit Gp5',
+      description: 'And Feel The Luxury With Low Price. Drive Anywhere.',
+      pricePerKm: 230,
+      imageUrl: 'assets/honda_fit.jpg',
+      dateAdded: DateTime(2024, 3, 29, 11, 0),
+      type: 'Car',
+    ),
+    Vehicle(
+      title: 'Rent The Honda Fit Gp5',
+      description: 'And Feel The Luxury With Low Price. Drive Anywhere.',
+      pricePerKm: 230,
+      imageUrl: 'assets/honda_fit.jpg',
+      dateAdded: DateTime(2024, 3, 29, 11, 0),
+      type: 'Car',
+    ),
+
     // Add more dummy vehicles here
   ];
 

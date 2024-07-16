@@ -4,6 +4,7 @@ class Vehicle {
   final double pricePerKm;
   final String imageUrl;
   final DateTime dateAdded;
+  final String type;
 
   Vehicle({
     required this.title,
@@ -11,5 +12,6 @@ class Vehicle {
     required this.pricePerKm,
     required this.imageUrl,
     required this.dateAdded,
+    required this.type,
   });
 }
