@@ -48,10 +48,10 @@ class MainNavigationPage extends StatelessWidget {
                 case 1:
                   navigationStateProvider.navigatorKey.currentState!.pushReplacementNamed('/add_vehicle');
                   break;
-                case 2:
+                case 3:
                   navigationStateProvider.navigatorKey.currentState!.pushReplacementNamed('/favorites');
                   break;
-                case 3:
+                case 4:
                   navigationStateProvider.navigatorKey.currentState!.pushReplacementNamed('/my_profile');
                   break;
                 default:

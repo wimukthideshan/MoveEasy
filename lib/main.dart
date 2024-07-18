@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:moveeasy/Pages/favourites_page.dart';
+import 'package:moveeasy/Pages/vehicle_details_page.dart';
 import 'package:moveeasy/Provider/auth_provider.dart';
 import 'package:moveeasy/Provider/navigation_state_provider.dart';
+import 'package:moveeasy/Provider/user_provider.dart';
 import 'package:moveeasy/Provider/vehicle_provider.dart';
 import 'package:moveeasy/Service/vehicle_data_service.dart';
 import 'package:moveeasy/navigation/main_navigation_page.dart';
@@ -29,7 +32,8 @@ class MyApp extends StatelessWidget {
         Provider<NavigationService>(create: (_) => _navigationService),
         ChangeNotifierProvider(create: (_) => NavigationStateProvider()),
         ChangeNotifierProvider(create: (_) => VehicleProvider()),
-        ChangeNotifierProvider(create: (_) => VehicleDataService())
+        ChangeNotifierProvider(create: (_) => VehicleDataService()),
+        ChangeNotifierProvider(create: (_) => UserProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -49,6 +53,7 @@ class MyApp extends StatelessWidget {
           '/reset-password': (context) => ResetPasswordPage(),
           '/recovery-code': (context) => RecoveryCodePage(),
           '/main-navigation': (context) => MainNavigationPage(),
+          '/vehicle-details': (context) => VehicleDetailsPage(vehicleIndex: 0),
         },
       ),
     );
