@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:moveeasy/Model/vehicle_model.dart';
 import 'package:moveeasy/Provider/vehicle_provider.dart';
+import 'package:moveeasy/components/app_bar.dart';
+import 'package:provider/provider.dart';
 
 class VehicleDetailsPage extends StatelessWidget {
   final int vehicleIndex;
@@ -9,36 +10,48 @@ class VehicleDetailsPage extends StatelessWidget {
   VehicleDetailsPage({required this.vehicleIndex});
 
   @override
-  Widget build(BuildContext context) {
-    final vehicleProvider = Provider.of<VehicleProvider>(context);
-    final vehicle = vehicleProvider.vehicles[vehicleIndex];
+    Widget build(BuildContext context) {
+    return Consumer<VehicleProvider>(
+      builder: (context, vehicleProvider, child) {
+        final vehicle = vehicleProvider.vehicles[vehicleIndex];
+        final isFavorite = vehicleProvider.isFavorite(vehicle);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Details'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.favorite_border),
-            onPressed: () {
-              // Implement favorite functionality
-            },
+        return Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            title: Image.asset('assets/logo.png', height: 50),
+            backgroundColor: Colors.amber[800],
+            actions: [
+              IconButton(
+                icon: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_border,
+                  color: isFavorite ? const Color.fromARGB(255, 20, 15, 15) : null,
+                ),
+                onPressed: () {
+                  vehicleProvider.toggleFavorite(vehicle);
+                },
+              ),
+            ],
           ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildImageCarousel(vehicle),
-            _buildVehicleDetails(vehicle),
-            _buildContactInformation(),
-            _buildVehicleOwner(),
-            _buildUserRatings(),
-            _buildOtherVehicles(vehicleProvider),
-          ],
-        ),
-      ),
-      bottomNavigationBar: _buildBottomButtons(),
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildImageCarousel(vehicle),
+                _buildVehicleDetails(vehicle),
+                _buildContactInformation(),
+                _buildVehicleOwner(),
+                _buildUserRatings(),
+                _buildOtherVehicles(vehicleProvider),
+              ],
+            ),
+          ),
+          bottomNavigationBar: _buildBottomButtons(),
+        );
+      },
     );
   }
 

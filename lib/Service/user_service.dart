@@ -6,6 +6,8 @@ class UserService {
   Future<User> fetchUserProfile() async {
     // Simulate API call
     await Future.delayed(Duration(seconds: 1));
+
+  
     
     return User(
       name: 'Shan',

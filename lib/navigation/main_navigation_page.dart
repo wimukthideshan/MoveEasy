@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moveeasy/Pages/search_page.dart';
 import 'package:moveeasy/Pages/add_vehicle_page.dart';
 import 'package:moveeasy/Pages/favourites_page.dart';
 import 'package:moveeasy/Pages/home_page.dart';
@@ -31,6 +32,9 @@ class MainNavigationPage extends StatelessWidget {
                 case '/my_profile':
                   builder = (_) => MyProfilePage();
                   break;
+                case '/search':
+                  builder = (_) => SearchPage();
+                  break;
                 default:
                   throw Exception('Invalid route: ${settings.name}');
               }
@@ -57,10 +61,7 @@ class MainNavigationPage extends StatelessWidget {
                 default:
               }
             },
-            onSearchPressed: () {
-              // Handle search action
-              print('Search button pressed');
-            },
+            onSearchPressed:() => navigationStateProvider.navigateToSearch(),
           ),
         ),
       ),

@@ -10,4 +10,11 @@ class NavigationStateProvider with ChangeNotifier {
     _selectedIndex = index;
     notifyListeners();
   }
+
+  void navigateToSearch() {
+    navigatorKey.currentState?.pushNamed('/search');
+    setSelectedIndex(2);
+  }
+
+  
 }

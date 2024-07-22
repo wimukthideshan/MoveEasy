@@ -5,6 +5,7 @@ class Vehicle {
   final String imageUrl;
   final DateTime dateAdded;
   final String type;
+  
 
   Vehicle({
     required this.title,

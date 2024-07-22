@@ -3,6 +3,7 @@ import 'package:moveeasy/Pages/favourites_page.dart';
 import 'package:moveeasy/Pages/vehicle_details_page.dart';
 import 'package:moveeasy/Provider/auth_provider.dart';
 import 'package:moveeasy/Provider/navigation_state_provider.dart';
+import 'package:moveeasy/Provider/search_provider.dart';
 import 'package:moveeasy/Provider/user_provider.dart';
 import 'package:moveeasy/Provider/vehicle_provider.dart';
 import 'package:moveeasy/Service/vehicle_data_service.dart';
@@ -15,6 +16,7 @@ import 'package:moveeasy/pages/reset_password_page.dart';
 import 'package:moveeasy/pages/sign_in_page.dart';
 import 'package:moveeasy/pages/sign_up_page.dart';
 import 'package:moveeasy/pages/verify_mobile_page.dart';
+import 'package:moveeasy/pages/search_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -34,6 +36,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => VehicleProvider()),
         ChangeNotifierProvider(create: (_) => VehicleDataService()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => SearchProvider()),
+        Provider<NavigationService>(create: (_) => NavigationService()),
+        
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -54,6 +59,7 @@ class MyApp extends StatelessWidget {
           '/recovery-code': (context) => RecoveryCodePage(),
           '/main-navigation': (context) => MainNavigationPage(),
           '/vehicle-details': (context) => VehicleDetailsPage(vehicleIndex: 0),
+          '/search': (context) => SearchPage(),
         },
       ),
     );

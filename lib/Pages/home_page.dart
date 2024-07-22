@@ -4,8 +4,8 @@ import 'package:moveeasy/Provider/vehicle_provider.dart';
 import 'package:moveeasy/Service/vehicle_data_service.dart';
 import 'package:moveeasy/components/app_bar.dart';
 import 'package:moveeasy/components/filter_button.dart';
+import 'package:moveeasy/components/vehicle_list.dart';
 import 'package:provider/provider.dart';
-import 'package:moveeasy/Pages/vehicle_details_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  _buildVehicleList(vehicleProvider),
+                  VehicleList(),
                 ],
               ),
             ),
@@ -173,59 +173,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildVehicleList(VehicleProvider vehicleProvider) {
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      itemCount: vehicleProvider.vehicles.length,
-      itemBuilder: (context, index) {
-        final vehicle = vehicleProvider.vehicles[index];
-        return GestureDetector(
-          onTap: () {
-            // Add your onTap logic here
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => VehicleDetailsPage(vehicleIndex: index),
-              ),
-            );
-          },
-          child: Card(
-            margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Row(
-              children: [
-                Image.asset(vehicle.imageUrl,
-                    width: 120, height: 120, fit: BoxFit.cover),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(vehicle.title,
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text(vehicle.description),
-                        SizedBox(height: 8),
-                        Text('RS ${vehicle.pricePerKm.toStringAsFixed(2)}/Km',
-                            style: TextStyle(
-                                color: Colors.amber,
-                                fontWeight: FontWeight.bold)),
-                        Text(
-                            DateFormat('MMM dd, yyyy - hh:mm a')
-                                .format(vehicle.dateAdded),
-                            style: TextStyle(color: Colors.grey, fontSize: 12)),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 }
